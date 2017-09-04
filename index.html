@@ -1,0 +1,28 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="style.css"/>
+</head>
+<body>
+<img src="http://vignette1.wikia.nocookie.net/transformice/images/c/c2/Transformice_Logo.png/revision/latest?cb=20140518170859">
+<div class="buttons">
+<a id="demo" onclick="game()"><button class="btn" style="float: left;">Play Now!</button></a>
+<a id="demo" onclick="forums()"><button class="btn" style="float: right;">Forums!</button></a> 
+</div>
+<script>
+function game() {
+    const remote = require('electron').remote;
+	const BrowserWindow = remote.BrowserWindow;
+	const ipc = require('electron').ipcRenderer;
+	ipc.send('load-page', 'http://www.transformice.com/TransformiceChargeur.swf');
+}
+
+function forums() {
+    const remote = require('electron').remote;
+	const BrowserWindow = remote.BrowserWindow;
+	const ipc = require('electron').ipcRenderer;
+	ipc.send('load-page', 'http://atelier801.com/forums');
+}
+
+</script>
+</body>
+</html>
