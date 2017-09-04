@@ -1,5 +1,6 @@
 const ipcMain = require('electron').ipcMain;
-var app = require('app');  
+var app = require('app');
+globalShortcut = require('global-shortcut')
 var BrowserWindow = require('browser-window');  
 
 
@@ -12,6 +13,7 @@ app.commandLine.appendSwitch('ppapi-flash-version', '26.0.0.151');
 require('ipc').on('load-page', (event, arg) => {
     mainWindow.loadURL(arg);
 });
+
 
 app.on('window-all-closed', function() {
   if (process.platform != 'darwin') {
@@ -29,8 +31,29 @@ app.on('ready', function() {
       'sandbox' : true
     }
   });
+  globalShortcut.register('Ctrl+c', () => {
+    var window = BrowserWindow.getFocusedWindow();
+    window.close();
+  });
+  
+  globalShortcut.register('Ctrl+m', () => {
+    var window = BrowserWindow.getFocusedWindow();
+    if(window.isMaximized()){
+        window.unmaximize();
+    }else{
+        window.maximize();
+      }
+  });
+  
+  globalShortcut.register('Ctrl+a', () => {
+      mainWindow.loadURL('http://atelier801.com/forums');
+  });
+
+  globalShortcut.register('Ctrl+t', () => {
+      mainWindow.loadURL('http://www.transformice.com/TransformiceChargeur.swf');
+  });
+
   mainWindow.loadURL('file://' + __dirname + '/index.html');
 });
-
 
 
