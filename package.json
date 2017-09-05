@@ -1,18 +1,22 @@
 {
-  "name": "electron-app",
-  "version": "1.0.0",
-  "description": "",
+  "name": "transformice-linux",
+  "version": "1.0.1",
+  "description": "Transformice app for linux",
   "main": "main.js",
   "dependencies": {
     "pretty-bytes": "^2.0.1"
   },
   "devDependencies": {
     "electron-packager": "^9.0.1",
-    "electron-prebuilt": "^0.35.2"
+    "electron-prebuilt": "^0.35.2",
+    "electron-builder": "^12.3.1"
+  },
+  "build": {
+    "icon": "icon/icon.png"
   },
   "scripts": {
     "start": "electron main.js"
   },
-  "author": "",
+  "author": "NekoTony",
   "license": "ISC"
 }
