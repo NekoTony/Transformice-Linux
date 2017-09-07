@@ -3,6 +3,8 @@
   "version": "1.0.1",
   "description": "Transformice app for linux",
   "main": "main.js",
+  "author": "NekoTony",
+  "license": "ISC",
   "dependencies": {
     "pretty-bytes": "^2.0.1"
   },
@@ -17,6 +19,8 @@
     "start": "electron main.js",
     "package": "npm install --save-dev electron-packager && electron-packager ./  --linux --out ~/Desktop/Transformice --version 1.0.1 --overwrite --icon=/home/tont/Desktop/Transformice-Linux/icon.png"
   },
-  "author": "NekoTony",
-  "license": "ISC"
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/NekoTony/Transformice-Linux.git"
+  }
 }

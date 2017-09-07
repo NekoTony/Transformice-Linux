@@ -40,7 +40,7 @@ app.on('ready', function() {
       'sandbox' : true
     }
   });
-  globalShortcut.register('Ctrl+c', () => {
+  globalShortcut.register('Ctrl+e', () => {
     var window = BrowserWindow.getFocusedWindow();
     window.close();
   });
