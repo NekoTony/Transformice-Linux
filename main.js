@@ -32,20 +32,24 @@ app.on('ready', function() {
         'width': 800,
         'height': 600,
         'frame': false,
-        'minWidth': 800,
-        'minHeight': 600,
         icon: path.join(__dirname, 'icon.png'),
         'web-preferences': {
             'plugins': true,
             'sandbox': true
         }
     });
+
     globalShortcut.register('Ctrl+e', () => {
         var window = BrowserWindow.getFocusedWindow();
         window.close();
     });
 
     globalShortcut.register('Ctrl+m', () => {
+        var window = BrowserWindow.getFocusedWindow();
+        window.minimize();
+    });
+
+    globalShortcut.register('Ctrl+f', () => {
         var window = BrowserWindow.getFocusedWindow();
         if (window.isMaximized()) {
             window.unmaximize();
