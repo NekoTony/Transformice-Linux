@@ -4,20 +4,18 @@
   "description": "Transformice app for linux",
   "main": "main.js",
   "dependencies": {
-    "flash-player-loader": "^1.2.0",
     "pretty-bytes": "^2.0.1"
   },
   "devDependencies": {
-    "electron": "1.7.6",
-    "electron-builder": "^12.3.1",
     "electron-packager": "^9.0.1",
     "electron-prebuilt": "^0.35.2"
   },
   "build": {
-    "icon": "icon/icon.png"
+    "icon": "icon.png"
   },
   "scripts": {
-    "start": "electron main.js"
+    "start": "electron main.js",
+    "package": "npm install --save-dev electron-packager && electron-packager ./  --linux --out ~/Desktop/Transformice --version 1.0.1 --overwrite --icon=/home/tont/Desktop/Transformice-Linux/icon.png"
   },
   "author": "NekoTony",
   "license": "ISC"

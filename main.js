@@ -1,16 +1,19 @@
 const ipcMain = require('electron').ipcMain;
-var app = require('electron').app;
-globalShortcut = require('electron').globalShortcut
-var BrowserWindow = require('electron').BrowserWindow;
-var path = require('path')
+var app = require('app');
+var path = require('path');
+globalShortcut = require('global-shortcut')
+var BrowserWindow = require('browser-window');  
 const electron = require('electron');
 const dialog = electron.dialog;
+var flash_path = path.join(__dirname, 'flash-plugin/libpepflashplayer.so');
 
-var flash_path =  "/usr/lib/adobe-flashplugin/libpepflashplayer.so"
+console.log = function() {}
 
 app.commandLine.appendSwitch('ppapi-flash-path', flash_path);
 
-ipcMain.on('load-page', (event, arg) => {
+app.commandLine.appendSwitch('ppapi-flash-version', '26.0.0.151');
+
+require('ipc').on('load-page', (event, arg) => {
     mainWindow.loadURL(arg);
 });
 
@@ -61,5 +64,3 @@ app.on('ready', function() {
 
   mainWindow.loadURL('file://' + __dirname + '/index.html');
 });
-
-
