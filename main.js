@@ -1,7 +1,8 @@
 const ipcMain = require('electron').ipcMain;
-var app = require('app');
-globalShortcut = require('global-shortcut')
-var BrowserWindow = require('browser-window');  
+var app = require('electron').app;
+globalShortcut = require('electron').globalShortcut
+var BrowserWindow = require('electron').BrowserWindow;
+var path = require('path')
 const electron = require('electron');
 const dialog = electron.dialog;
 
@@ -9,7 +10,7 @@ app.commandLine.appendSwitch('ppapi-flash-path', '/usr/lib/adobe-flashplugin/lib
 
 app.commandLine.appendSwitch('ppapi-flash-version', '26.0.0.151');
 
-require('ipc').on('load-page', (event, arg) => {
+ipcMain.on('load-page', (event, arg) => {
     mainWindow.loadURL(arg);
 });
 
@@ -24,11 +25,15 @@ app.on('window-all-closed', function() {
 });
 
 app.on('ready', function() {
+  var ok = path.join(__dirname, 'icon.png') 
+  console.log(ok);
   mainWindow = new BrowserWindow({
     'width': 800,
     'height': 600,
     'frame' : false,
-    'icon': __dirname + '/icon.png',
+    'minWidth' : 800,
+    'minHeight' : 600,
+    icon: path.join(__dirname, 'icon.png'),
     'web-preferences': {
       'plugins': true,
       'sandbox' : true
