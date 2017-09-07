@@ -6,9 +6,9 @@ var path = require('path')
 const electron = require('electron');
 const dialog = electron.dialog;
 
-app.commandLine.appendSwitch('ppapi-flash-path', '/usr/lib/adobe-flashplugin/libpepflashplayer.so');
+var flash_path =  "/usr/lib/adobe-flashplugin/libpepflashplayer.so"
 
-app.commandLine.appendSwitch('ppapi-flash-version', '26.0.0.151');
+app.commandLine.appendSwitch('ppapi-flash-path', flash_path);
 
 ipcMain.on('load-page', (event, arg) => {
     mainWindow.loadURL(arg);
@@ -25,8 +25,6 @@ app.on('window-all-closed', function() {
 });
 
 app.on('ready', function() {
-  var ok = path.join(__dirname, 'icon.png') 
-  console.log(ok);
   mainWindow = new BrowserWindow({
     'width': 800,
     'height': 600,
