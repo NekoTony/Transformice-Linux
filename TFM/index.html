@@ -1,0 +1,42 @@
+<html>
+
+<head>
+    <title>Transformice</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body>
+    <div id="bodie">
+        <center><img src="http://vignette1.wikia.nocookie.net/transformice/images/c/c2/Transformice_Logo.png/revision/latest?cb=20140518170859" style="margin-top: 20px;">
+        </center>
+        <div class="buttons">
+            <a onclick="game()">
+                <button class="btn btn-1 btn-1a" style="float: left;">Play Now!</button>
+            </a>
+            <a onclick="forums()">
+                <button class="btn btn-1 btn-1a" style="float: right;">Forums!</button>
+            </a>
+        </div>
+        <div id="foot">
+            <p>Made by <a onclick="home()">NekoTony</a> 2017.</p>
+        </div>
+    </div>
+    <script>
+        var ipc = require('electron').ipcRenderer;
+
+        function home() {
+            ipc.send('load-page', 'http://atelier801.com/profile?pr=Nekotonyy')
+        }
+
+        function game() {
+            ipc.send('load-page', 'http://www.transformice.com/TransformiceChargeur.swf');
+
+        }
+
+        function forums() {
+            ipc.send('load-page', 'http://atelier801.com/forums');
+        }
+    </script>
+</body>
+
+</html>

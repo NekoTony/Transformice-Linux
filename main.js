@@ -27,12 +27,11 @@ require("ipc").on("load-page", (event, arg) => {
 });
 
 // App Closes Functions
-app.on("window-all-closed", function() {
-    if (process.platform != "darwin") {
-        app.quit();
-    }
+app.on('window-all-closed', function() {
+  if (process.platform != 'darwin') {
+    app.quit();
+  }
 });
-
 
 // Starts Application
 app.on("ready", function() {
@@ -43,7 +42,7 @@ app.on("ready", function() {
         "frame": false,
         'transparent': true,
         'title': "Transformice",
-        'icon': path.join(__dirname, "app/icon.png"),
+        'icon': path.join(__dirname, "TFM/icon.png"),
         "web-preferences": {
             "plugins": true,
             "sandbox": true
@@ -54,7 +53,7 @@ app.on("ready", function() {
     var id = win.id
     globalShortcut.register("Ctrl+Shift+q", () => {
         var window = BrowserWindow.fromId(id);
-        app.quit();
+        window.close()
     });
 
     globalShortcut.register("Ctrl+Shift+m", () => {
@@ -80,10 +79,10 @@ app.on("ready", function() {
     });
 
     globalShortcut.register("Ctrl+Shift+h", () => {
-        win.loadURL("file://" + __dirname + "/app/index.html");    
+        win.loadURL("file://" + __dirname + "/TFM/index.html");    
     });
 
     // Loads index.html
-    win.loadURL("file://" + __dirname + "/app/index.html");
+    win.loadURL("file://" + __dirname + "/TFM/index.html");
 
 });

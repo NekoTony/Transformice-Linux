@@ -1,28 +1,48 @@
 {
-  "name": "transformice-linux",
-  "version": "1.0.3",
+  "name": "transformice",
+  "version": "1.0.5",
   "productName": "Transformice",
-  "description": "Transformice app for linux",
+  "description": "Transformice is a multiplayer game, where you play as a little mouse out to get cheese! With just over million of players, this deserve rewards. Sadly, me and a few people who play the game have problems setting up the Linux standalone. So, i decided to make my own with Node.js Electron. It's simple, easy, and open source!!",
   "main": "main.js",
-  "author": "NekoTony",
-  "license": "ISC",
+  "author": {
+    "name": "NekoTony",
+    "url": "http://nekotony.pro/"
+  },
+  "license": "MIT",
+  "homepage": "http://atelier801.com/topic?f=6&t=854970&p=1#m7",
   "dependencies": {
     "pretty-bytes": "^2.0.1"
   },
   "devDependencies": {
     "electron-packager": "^9.0.1",
-    "electron-prebuilt": "^0.35.2"
+    "electron-installer-debian": "*",
+    "electron-installer-redhat": "*",
+    "electron-prebuilt": "^0.35.2",
+    "rimraf": "*"
   },
   "build": {
-    "icon": "icon.png"
+    "icon": "app/icon.png"
   },
+  "bugs": {
+    "url": "https://github.com/NekoTony/Transformice-Linux/issues"
+  },
+  "keywords": [
+    "Transformice",
+    "TFM",
+    "MMO"
+  ],
   "scripts": {
     "start": "electron main.js",
-    "build": "electron-packager . app --platform linux --arch x64 --out dist/",
-    "deb64": "electron-installer-debian --src dist/app-linux-x64/ --dest ~/Desktop --arch amd64"
+    "clean": "rimraf dist",
+    "exe32": "sudo electron-packager . app --platform linux --arch ia32 --out /dist/ --ignore \"(dist|node_modules/electron.*)\" --overwrite",
+    "exe64": "sudo electron-packager . app --platform linux --arch x64 --out /dist/ --ignore \"(dist|node_modules/electron.*)\" --overwrite",
+    "deb32": "sudo electron-installer-debian --src /dist/app-linux-ia32/ --dest ~/Desktop  --arch i386 --config config.json",
+    "deb64": "sudo electron-installer-debian --src /dist/app-linux-x64/ --dest ~/Desktop --arch amd64 --config config.json",
+    "build64": "npm run clean && npm run exe64 && npm run deb64",
+    "build32": "npm run clean && npm run exe32 && npm run deb32"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/NekoTony/Transformice-Linux.git"
+    "url": "https://github.com/NekoTony/Transformice-Linux"
   }
 }
