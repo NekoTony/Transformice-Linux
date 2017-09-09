@@ -59,4 +59,4 @@ If you have an error with this application than please report it in issues or on
 ### Links
 
 [Discord Support Server](https://discord.gg/mBU7rSv)
-[Official A801 Thread](http://atelier801.com/topic?f=6&t=854970)
+[Official A801 Thread](haven't made it yet)
