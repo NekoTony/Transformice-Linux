@@ -1,56 +1,69 @@
-const ipcMain = require('electron').ipcMain;
-var app = require('app');
-var path = require('path');
-globalShortcut = require('global-shortcut')
-var BrowserWindow = require('browser-window');
-const electron = require('electron');
-const dialog = electron.dialog;
-var flash_path = path.join(__dirname, 'flash-plugin/libpepflashplayer.so');
+// Load require apps
+var electron = require("electron");
+var ipcMain = electron.ipcMain;
+var dialog = electron.dialog;
+var app = require("app");
+var path = require("path");
+globalShortcut = require("global-shortcut");
+var BrowserWindow = require("browser-window");
 
+// Disable Loggings (Remove this to see any errors within terminal)
 console.log = function() {}
 
-app.commandLine.appendSwitch('ppapi-flash-path', flash_path);
+app.commandLine.appendSwitch('enable-transparent-visuals');
+// Load Flash Plugin 
+var flash_path = path.join(__dirname, "flash-plugin/libpepflashplayer.so");
+app.commandLine.appendSwitch("ppapi-flash-path", flash_path);
+app.commandLine.appendSwitch("ppapi-flash-version", "26.0.0.151");
 
-app.commandLine.appendSwitch('ppapi-flash-version', '26.0.0.151');
-
-require('ipc').on('load-page', (event, arg) => {
-    mainWindow.loadURL(arg);
-});
-
+// Shows Errors in Terminal
 dialog.showErrorBox = function(title, content) {
     console.log(`${title}\n${content}`);
 };
 
-app.on('window-all-closed', function() {
-    if (process.platform != 'darwin') {
+// Loads web pages for index.html functions
+require("ipc").on("load-page", (event, arg) => {
+    win.loadURL(arg);
+});
+
+// App Closes Functions
+app.on("window-all-closed", function() {
+    if (process.platform != "darwin") {
         app.quit();
     }
 });
 
-app.on('ready', function() {
-    mainWindow = new BrowserWindow({
-        'width': 800,
-        'height': 600,
-        'frame': false,
-        icon: path.join(__dirname, 'icon.png'),
-        'web-preferences': {
-            'plugins': true,
-            'sandbox': true
+
+// Starts Application
+app.on("ready", function() {
+    win = new BrowserWindow({
+        "width": 800,
+        "height": 620,
+        // Set frame to true if you want exit button
+        "frame": false,
+        'transparent': true,
+        'title': "Transformice",
+        'icon': path.join(__dirname, "app/icon.png"),
+        "web-preferences": {
+            "plugins": true,
+            "sandbox": true
         }
     });
+    // Load Application Functions
 
-    globalShortcut.register('Ctrl+e', () => {
-        var window = BrowserWindow.getFocusedWindow();
-        window.close();
+    var id = win.id
+    globalShortcut.register("Ctrl+Shift+q", () => {
+        var window = BrowserWindow.fromId(id);
+        app.quit();
     });
 
-    globalShortcut.register('Ctrl+m', () => {
-        var window = BrowserWindow.getFocusedWindow();
+    globalShortcut.register("Ctrl+Shift+m", () => {
+        var window = BrowserWindow.fromId(id);
         window.minimize();
     });
 
-    globalShortcut.register('Ctrl+f', () => {
-        var window = BrowserWindow.getFocusedWindow();
+    globalShortcut.register("Ctrl+Shift+f", () => {
+        var window = BrowserWindow.fromId(id);
         if (window.isMaximized()) {
             window.unmaximize();
         } else {
@@ -58,13 +71,19 @@ app.on('ready', function() {
         }
     });
 
-    globalShortcut.register('Ctrl+a', () => {
-        mainWindow.loadURL('http://atelier801.com/forums');
+    globalShortcut.register("Ctrl+Shift+a", () => {
+        win.loadURL("http://atelier801.com/forums");
     });
 
-    globalShortcut.register('Ctrl+t', () => {
-        mainWindow.loadURL('http://www.transformice.com/TransformiceChargeur.swf');
+    globalShortcut.register("Ctrl+Shift+t", () => {
+        win.loadURL("http://www.transformice.com/TransformiceChargeur.swf");
     });
 
-    mainWindow.loadURL('file://' + __dirname + '/index.html');
+    globalShortcut.register("Ctrl+Shift+h", () => {
+        win.loadURL("file://" + __dirname + "/app/index.html");    
+    });
+
+    // Loads index.html
+    win.loadURL("file://" + __dirname + "/app/index.html");
+
 });

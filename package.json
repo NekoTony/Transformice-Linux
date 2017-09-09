@@ -1,6 +1,7 @@
 {
   "name": "transformice-linux",
-  "version": "1.0.1",
+  "version": "1.0.3",
+  "productName": "Transformice",
   "description": "Transformice app for linux",
   "main": "main.js",
   "author": "NekoTony",
@@ -17,7 +18,8 @@
   },
   "scripts": {
     "start": "electron main.js",
-    "package": "npm install --save-dev electron-packager && electron-packager ./  --linux --out ~/Desktop/Transformice --version 1.0.1 --overwrite --icon=/home/tont/Desktop/Transformice-Linux/icon.png"
+    "build": "electron-packager . app --platform linux --arch x64 --out dist/",
+    "deb64": "electron-installer-debian --src dist/app-linux-x64/ --dest ~/Desktop --arch amd64"
   },
   "repository": {
     "type": "git",
