@@ -20,8 +20,8 @@
     "electron-prebuilt": "^0.35.2",
     "electron-installer-windows": "*",
     "rimraf": "*"
-  },
-  "build": {
+ },
+ "build": {
     "icon": "app/icon.png"
   },
   "bugs": {
