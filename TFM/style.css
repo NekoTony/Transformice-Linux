@@ -3,7 +3,7 @@
     font-size: 18px;
     color: #fff;
     font-family: 'icomoon' !important;
-    margin-top: 135px !important;
+    margin-top: 120px !important;
     float: : left !important;
     width: 300px !important;
     position: absolute !important;
@@ -19,7 +19,7 @@
 }
 #bodie {
     width: 800px;
-    height: 620px;
+    height: 600px;
     background-color: #342824;
     background: url('background.png');
     background-size: cover;

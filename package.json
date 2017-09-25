@@ -1,6 +1,6 @@
 {
   "name": "transformice",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "productName": "Transformice",
   "description": "Transformice is a multiplayer game, where you play as a little mouse out to get cheese! With just over million of players, this deserve rewards. Sadly, me and a few people who play the game have problems setting up the Linux standalone. So, i decided to make my own with Node.js Electron. It's simple, easy, and open source!!",
   "main": "main.js",
@@ -41,6 +41,7 @@
     "deb64": "sudo electron-installer-debian --src /dist/app-linux-x64/ --dest ~/Desktop --arch amd64 --config config.json",
     "build64": "npm run clean && npm run exe64 && npm run deb64",
     "build32": "npm run clean && npm run exe32 && npm run deb32",
+    "linux" : "sudo npm run build32 && sudo npm run build64",
     "winexe32": "electron-packager . app --platform win32 --arch ia32 --out /dist/ --ignore \"(dist|node_modules/electron.*)\" --overwrite",
     "winexe64": "electron-packager . app --platform win32 --arch x64 --out /dist/ --ignore \"(dist|node_modules/electron.*)\" --overwrite",
     "set32": "sudo electron-installer-windows --src /dist/app-win32-ia32/ --dest ~/Desktop/win/ia32/ --config conf.json",

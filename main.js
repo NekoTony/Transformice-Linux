@@ -37,7 +37,7 @@ app.on('window-all-closed', function() {
 app.on("ready", function() {
     win = new BrowserWindow({
         "width": 800,
-        "height": 620,
+        "height": 600,
         // Set frame to true if you want exit button
         "frame": false,
         'transparent': true,
@@ -71,14 +71,30 @@ app.on("ready", function() {
     });
 
     globalShortcut.register("Ctrl+Shift+a", () => {
-        win.loadURL("http://atelier801.com/forums");
+        win.loadURL("http://atelier801.com/index");
     });
-
+    
     globalShortcut.register("Ctrl+Shift+t", () => {
         win.loadURL("http://www.transformice.com/TransformiceChargeur.swf");
     });
 
     globalShortcut.register("Ctrl+Shift+h", () => {
+        win.loadURL("http://www.nekodancer.com/ChargeurNekodancer.swf");    
+    });
+    
+    globalShortcut.register("Ctrl+Shift+z", () => {
+        win.loadURL("http://www.fortoresse.com/ChargeurFortoresse.swf");    
+    });
+    
+    globalShortcut.register("Ctrl+Shift+v", () => {
+        win.loadURL("http://www.anvilgod.com");    
+    });
+
+    globalShortcut.register("Ctrl+Shift+b", () => {
+        win.loadURL("http://www.bouboum.com/ChargeurBouboum.swf");    
+    });
+    
+    globalShortcut.register("Ctrl+Shift+n", () => {
         win.loadURL("file://" + __dirname + "/TFM/index.html");    
     });
 
