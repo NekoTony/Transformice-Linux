@@ -2,10 +2,16 @@
 
 Transformice is a multiplayer game, where you play as a little mouse out to get cheese! With just over million of players, this deserve rewards. Sadly, me and a few people who play the game have problems setting up the Linux standalone. So, i decided to make my own with Node.js Electron. It's simple, easy, and open source!!
 
-### Installing
+### Installing (recommended)
 
 Installing the app is quite simple. Open up a terminal **(CTRL + T)** and type in these commands.
-
+```arch 
+#If arch shows x86_64 then do this
+URL='http://nekotony.pro/deb/transformice_x64.deb'; FILE=`mktemp`; wget "$URL" -qO $FILE && sudo dpkg -i $FILE; rm $FILE
+#otherwise do this
+URL='http://nekotony.pro/deb/transformice_x32.deb'; FILE=`mktemp`; wget "$URL" -qO $FILE && sudo dpkg -i $FILE; rm $FILE```
+```
+### Other Installing 
 ```
 sudo apt-get update
 sudo apt-get install git
@@ -59,4 +65,4 @@ If you have an error with this application than please report it in issues or on
 ### Links
 
 [Discord Support Server](https://discord.gg/mBU7rSv)
-[Official A801 Thread](haven't made it yet)
+[Official A801 Thread](https://atelier801.com/topic?f=6&t=854970&p=2#m37)
