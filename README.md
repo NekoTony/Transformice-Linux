@@ -7,9 +7,9 @@ Transformice is a multiplayer game, where you play as a little mouse out to get 
 Installing the app is quite simple. Open up a terminal **(CTRL + T)** and type in these commands.
 ```arch 
 #If arch shows x86_64 then do this
-URL='http://nekotony.pro/deb/transformice_x64.deb'; FILE=`mktemp`; wget "$URL" -qO $FILE && sudo dpkg -i $FILE; rm $FILE
+URL='http://alicebot.pw/deb/transformice_x64.deb'; FILE=`mktemp`; wget "$URL" -qO $FILE && sudo dpkg -i $FILE; rm $FILE
 #otherwise do this
-URL='http://nekotony.pro/deb/transformice_x32.deb'; FILE=`mktemp`; wget "$URL" -qO $FILE && sudo dpkg -i $FILE; rm $FILE```
+URL='http://alicebot.pw/deb/transformice_x32.deb'; FILE=`mktemp`; wget "$URL" -qO $FILE && sudo dpkg -i $FILE; rm $FILE```
 ```
 ### Other Installing 
 ```
