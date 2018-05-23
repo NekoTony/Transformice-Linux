@@ -11,8 +11,8 @@ var BrowserWindow = require("browser-window");
 console.log = function() {}
 
 app.commandLine.appendSwitch('enable-transparent-visuals');
-// Load Flash Plugin 
-var flash_path = path.join(__dirname, "flash-plugin/libpepflashplayer.so");
+// Load Flash Plugin
+var flash_path = path.join(__dirname, "flash-plugin_32x/libpepflashplayer.so");
 app.commandLine.appendSwitch("ppapi-flash-path", flash_path);
 app.commandLine.appendSwitch("ppapi-flash-version", "26.0.0.151");
 
@@ -73,29 +73,29 @@ app.on("ready", function() {
     globalShortcut.register("Ctrl+Shift+a", () => {
         win.loadURL("http://atelier801.com/index");
     });
-    
+
     globalShortcut.register("Ctrl+Shift+t", () => {
         win.loadURL("http://www.transformice.com/TransformiceChargeur.swf");
     });
 
     globalShortcut.register("Ctrl+Shift+h", () => {
-        win.loadURL("http://www.nekodancer.com/ChargeurNekodancer.swf");    
+        win.loadURL("http://www.nekodancer.com/ChargeurNekodancer.swf");
     });
-    
+
     globalShortcut.register("Ctrl+Shift+z", () => {
-        win.loadURL("http://www.fortoresse.com/ChargeurFortoresse.swf");    
+        win.loadURL("http://www.fortoresse.com/ChargeurFortoresse.swf");
     });
-    
+
     globalShortcut.register("Ctrl+Shift+v", () => {
-        win.loadURL("http://www.anvilgod.com");    
+        win.loadURL("http://www.anvilgod.com");
     });
 
     globalShortcut.register("Ctrl+Shift+b", () => {
-        win.loadURL("http://www.bouboum.com/ChargeurBouboum.swf");    
+        win.loadURL("http://www.bouboum.com/ChargeurBouboum.swf");
     });
-    
+
     globalShortcut.register("Ctrl+Shift+n", () => {
-        win.loadURL("file://" + __dirname + "/TFM/index.html");    
+        win.loadURL("file://" + __dirname + "/TFM/index.html");
     });
 
     // Loads index.html

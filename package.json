@@ -1,12 +1,11 @@
 {
   "name": "transformice",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "productName": "Transformice",
   "description": "Transformice is a multiplayer game, where you play as a little mouse out to get cheese! With just over million of players, this deserve rewards. Sadly, me and a few people who play the game have problems setting up the Linux standalone. So, i decided to make my own with Node.js Electron. It's simple, easy, and open source!!",
   "main": "main.js",
   "author": {
-    "name": "NekoTony",
-    "url": "http://nekotony.pro/"
+    "name": "NekoTony"
   },
   "license": "MIT",
   "homepage": "http://atelier801.com/topic?f=6&t=854970&p=1#m7",
