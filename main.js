@@ -12,7 +12,7 @@ console.log = function() {}
 
 app.commandLine.appendSwitch('enable-transparent-visuals');
 // Load Flash Plugin
-var flash_path = path.join(__dirname, "flash-plugin_32x/libpepflashplayer.so");
+var flash_path = path.join("/usr/lib/Transformice/resources/app/flash-plugin_32x/libpepflashplayer.so");
 app.commandLine.appendSwitch("ppapi-flash-path", flash_path);
 app.commandLine.appendSwitch("ppapi-flash-version", "26.0.0.151");
 
